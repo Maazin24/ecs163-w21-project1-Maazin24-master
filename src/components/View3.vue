@@ -1,9 +1,22 @@
 <!-- Your HTML goes here -->
 <template>
   <div>
+    <p style="font-size: 15px"> For the First Project in my ECS163 Class, I analyzed the "Fatal Police Shootings in the US" dataset. <br/> </p>
     <div class="chart" id="scatterPlot"></div>
+    <p style="font-size: 15px"> I have used a <u>Scatterplot</u> to represent the magnitude of killed officers by year which servers as the overview of the dataset. <br/> 
+    <br/> 
+    In the scatterplot you can see the general downtrend in police officer deaths, posssibly indicating an increase in peaceful arrests, compliance, and a decrease in violent behavior. This could be because of the legislation that had been passed at the time like certain laws limiting an officer's ability to shoot their gun, or decreased spending in a police department leading to a lack of training/guidance. 
+    The downtrend in 2017 is much shorter than the two preceeding years because there wasn't any data for that time period.</p>
     <div class="chart" id="barChart"></div>
     <div class="chart" id="lineChart"></div>
+    <p style="font-size: 15px"> For my detailed views, I have implemented a <u>Bar Chart</u> representing the race breakdown of each officer killed, and a <u>Line Chart</u> showing the monthly trend in officer deaths. <br/>
+    <br/> 
+    Each year has its own respective bar chart representing the deaths in proportion to race, and each year you will see that White Police Officers are killed in a significantly higher amount realtive to Blacks, Hispanics, and Asians. 
+    This number is high because of the abudance of White Officers in the police force around the US. Also, the amount of Blacks and Hispanics killed are unproportionately high relative to their population in the department, indicating that they are often more engaged in Shootouts than officers of other race. <br/>
+    <br/>
+    The Line Chart for each of the three years illustrates the monthly trend in Officer deaths. If you look at each year you will notice that during the first few monthts of the year there is a decline in deaths.
+    That number picks back up about halfway through the year, and then declines again heading towards the end of the year. This could mean that the summer time is often a dangerous time in terms of the chances of shootouts ocurring due to things like suitable weather, more outside activities, and an increase in idle behavior. <br/>
+   </p>
   </div>
 </template>
 
@@ -332,7 +345,7 @@ export default {
         .call(
           d3.axisBottom(x2).tickFormat((d) => {
             return currentThis.updateMonth(d);
-          })
+          }).ticks(data2.length)
         );
       svg2.select(".lineY").duration(750).call(d3.axisLeft(y2));
     },
@@ -435,7 +448,7 @@ export default {
         data.push(ele);
       }
 
-      return [
+      let finalResults = [
         months["01"] || { month: 1, dead: 0 },
         months["02"] || { month: 2, dead: 0 },
         months["03"] || { month: 3, dead: 0 },
@@ -449,6 +462,12 @@ export default {
         months["11"] || { month: 11, dead: 0 },
         months["12"] || { month: 12, dead: 0 },
       ];
+
+      while(finalResults[finalResults.length - 1].dead == 0) {
+        finalResults.pop();
+      }
+
+      return finalResults;
     },
     updateMonth(month) {
       switch (month) {
@@ -477,7 +496,7 @@ export default {
         case 12:
           return "Dec";
       }
-      return "YES";
+      return "";
     },
   },
 };
