@@ -1,6 +1,6 @@
 <!-- Your HTML goes here -->
 <template>
-    <div>View2</div>
+    <div></div>
 </template>
 
 <script>

@@ -6,7 +6,7 @@
     <p style="font-size: 15px"> I have used a <u>Scatterplot</u> to represent the magnitude of killed officers by year which servers as the overview of the dataset. <br/> 
     <br/> 
     In the scatterplot you can see the general downtrend in police officer deaths, posssibly indicating an increase in peaceful arrests, compliance, and a decrease in violent behavior. This could be because of the legislation that had been passed at the time like certain laws limiting an officer's ability to shoot their gun, or decreased spending in a police department leading to a lack of training/guidance. 
-    The downtrend in 2017 is much shorter than the two preceeding years because there wasn't any data for that time period.</p>
+    The downtrend in 2017 is much shorter than the two preceeding years because there wasn't any data for that time period. </p>
     <div class="chart" id="barChart"></div>
     <div class="chart" id="lineChart"></div>
     <p style="font-size: 15px"> For my detailed views, I have implemented a <u>Bar Chart</u> representing the race breakdown of each officer killed, and a <u>Line Chart</u> showing the monthly trend in officer deaths. <br/>
